@@ -172,3 +172,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# Data folders and files
+data3/
+all_data*/
+*.fits
+*pickle
