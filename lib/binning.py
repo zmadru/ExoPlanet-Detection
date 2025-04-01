@@ -228,5 +228,7 @@ def local_view(time,
       bin_width=duration * bin_width_factor,
       t_min=max(-period / 2, -duration * num_durations),
       t_max=min(period / 2, duration * num_durations),
+      # t_min=-duration * num_durations,
+      # t_max=duration * num_durations,
       normalize=normalize)
 
