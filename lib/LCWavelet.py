@@ -54,7 +54,7 @@ class LightCurveWaveletCollection():
         self.headers = headers
 
     def save(self, path = ""):
-        file_name = path + 'kic '+str(self.kepler_id)+'-'+self.headers['Kepler_name']+'.pickle'
+        file_name = path + 'kic '+str(self.kepler_id)+'-'+self.headers['Kepler_name'].replace('.', '_')+'.pickle'
         with open(file_name, "wb") as f:
             pickle.dump(self, f)
 
@@ -105,7 +105,7 @@ class LightCurveGlobalLocalCollection():
         self.headers = headers
 
     def save(self, path = ""):
-        file_name = path + '/kic '+str(self.kepler_id)+'-'+self.headers['Kepler_name']+'.pickle'
+        file_name = path + '/kic '+str(self.kepler_id)+'-'+self.headers['Kepler_name'].replace('.', '_')+'.pickle'
         with open(file_name, "wb") as f:
             pickle.dump(self, f)
 
@@ -147,7 +147,7 @@ class LightCurveWaveletGlobalLocalCollection():
         self.levels = levels
 
     def save(self, path = ""):
-        file_name = path + '/kic '+str(self.kepler_id)+'-'+self.headers['Kepler_name']+'.pickle'
+        file_name = path + '/kic_'+str(self.kepler_id)+'-'+self.headers['Kepler_name'].replace('.', '_')+'.pickle'
         with open(file_name, "wb") as f:
             pickle.dump(self, f)
 

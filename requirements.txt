@@ -1,6 +1,6 @@
-lightkurve
+lightkurve==2.0.11
 PyWavelets
-tensorflow
+tensorflow==2.9.2
 pandas
-astropy
+astropy<5
 parallelbar

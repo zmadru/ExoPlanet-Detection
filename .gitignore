@@ -178,3 +178,4 @@ data3/
 all_data*/
 *.fits
 *pickle
+logs/
