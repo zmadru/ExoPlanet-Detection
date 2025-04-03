@@ -267,7 +267,8 @@ res = train_test_split(*(flatten+[y]), test_size=0.3, shuffle=False)
 *X_test, y_test = [r for n, r in enumerate(res) if n % 2 == 1 ]
 
 model_1 = gen_model_2_levels(inputs, output_classes)
-model_1.compile(loss = 'binary_crossentropy', optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy','binary_crossentropy'])
+# model_1.compile(loss = 'binary_crossentropy', optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy','binary_crossentropy'])
+model_1.compile(optimizer=tf.keras.optimizers.Adam(), loss=tf.keras.losses.BinaryCrossentropy(), metrics=['accuracy', 'binary_crossentropy'])
 
 log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)

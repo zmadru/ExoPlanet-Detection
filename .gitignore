@@ -179,3 +179,4 @@ all_data*/
 *.fits
 *pickle
 logs/
+.torchenv
