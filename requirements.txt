@@ -1,6 +1,9 @@
 lightkurve==2.0.11
 PyWavelets
 tensorflow==2.9.2
+torch 
+torchvision
+torchaudio
 pandas
 astropy<5
 parallelbar
