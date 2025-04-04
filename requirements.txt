@@ -7,3 +7,5 @@ torchaudio
 pandas
 astropy<5
 parallelbar
+seaborn
+
