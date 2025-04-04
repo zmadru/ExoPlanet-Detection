@@ -187,7 +187,7 @@ def process_func_continue(row):
     
 if __name__ == "__main__":
     
-    df_path = 'cumulative_2022.09.30_09.06.43.csv'
+    df_path = 'csv/cumulative_2022.09.30_09.06.43.csv'
     df = pd.read_csv(df_path ,skiprows=144)
     
     # results = []
