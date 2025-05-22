@@ -222,8 +222,9 @@ def process_func_continue(row):
     
 if __name__ == "__main__":
     
-    df_path = 'csv/cumulative_2022.09.30_09.06.43.csv'
-    df = pd.read_csv(df_path ,skiprows=144)
+    # df_path = 'csv/cumulative_2022.09.30_09.06.43.csv'
+    df_path = 'csv/cumulative_2025.04.04_07.26.51.csv'
+    df = pd.read_csv(df_path ,skiprows=53)
     
     # results = []
     # for _, row in tqdm(df.iterrows(), total=len(df)): # iterative downloading
@@ -232,10 +233,11 @@ if __name__ == "__main__":
     #     break
     
     # concurrent downloading
-    path = "all_data/"
-    download_dir="data3/"
-    process_func =  partial(process_light_curve, levels=[1, 2, 3, 4], wavelet_family="sym5", plot=False, plot_comparative=False,
-                            save=True, path=path, download_dir=download_dir, plot_folder="all_data/")
+    wavelet_family = "db5"
+    path = f"all_data_2025_{wavelet_family}/"
+    download_dir="data_2025/"
+    process_func =  partial(process_light_curve, levels=[1, 2, 3, 4], wavelet_family=wavelet_family, plot=False, plot_comparative=False,
+                            save=True, path=path, download_dir=download_dir, plot_folder=path)
     # results = progress_map(process_func, [row for _, row in df.iterrows()], n_cpu=8, total=len(df), error_behavior='coerce')
     # lanzar el proceso en paralelo con 12 CPUs, pero fraccionando el ds cada 500 elementos
     results = []

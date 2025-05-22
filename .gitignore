@@ -174,7 +174,7 @@ cython_debug/
 
 
 # Data folders and files
-data3/
+data*/
 all_data*/
 *.fits
 *pickle
