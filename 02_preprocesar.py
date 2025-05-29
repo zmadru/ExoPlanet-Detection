@@ -123,7 +123,7 @@ def process_light_curve(row, mission="Kepler", download_dir="data3/",
 
     # 2. Plegar en fase y dividir en pares e impares
     logger.info("Plegando en fase pares/impares...")
-    lc_fold = lc_collection.fold(period = row.koi_period,epoch_time = row.koi_time0bk)
+    lc_fold = lc_collection.fold(period = row.koi_period, epoch_time = row.koi_time0bk)
     if plot:
         logger.info('graficando series plegadas en fase...')
         lc_fold.plot()
