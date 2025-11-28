@@ -7,6 +7,7 @@ import os
 import matplotlib.pyplot as plt
 from lib.LCWavelet import *
 from lightkurve.lightcurve import FoldedLightCurve
+from lib.starlet import starlet_transform_1d
 
 class LightCurveWaveletFoldCollection():
   
@@ -242,6 +243,19 @@ def apply_wavelet(light_curve, w_family, levels,cut_border_percent=0.1):
     #         lc_wavelet.append(cut_border(level_w,cut_border_percent))
     #         #lc_wavelet.append(level_w)
     #         data = level_w[0]
+    return LightCurveWaveletFoldCollection(light_curve, lc_wavelet)
+
+def apply_starlet(light_curve, bf, levels, verbose=False):
+    time = light_curve.time.value
+    data = light_curve.flux.value
+    # coeffs = starlet_transform_1d(data, scales=scales, bf=bf, verbose=verbose)
+    # lc_wavelet = []
+    # for i in range(len(coeffs)-1):
+    #     lc_wavelet.append([coeffs[-1], coeffs[i]])
+    lc_wavelet = []
+    for level in levels:
+        coeffs = starlet_transform_1d(data, scales=level, bf=bf, verbose=verbose)
+        lc_wavelet.append([coeffs[-1], coeffs[-2]])
     return LightCurveWaveletFoldCollection(light_curve, lc_wavelet)
 
 def load_light_curve(kepler_id,mission='Kepler'):

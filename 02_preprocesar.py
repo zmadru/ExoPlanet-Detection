@@ -155,10 +155,14 @@ def process_light_curve(row, mission="Kepler", download_dir="data3/",
         lc_even_local = cut_wavelet(lc_even_local, wavelet_window)
     
     logger.info("Calculando wavelets...")
-    lc_even_global = apply_wavelet(lc_even_global, wavelet_family, levels, cut_border_percent=cut_border_percent)
-    lc_odd_global = apply_wavelet(lc_odd_global, wavelet_family, levels, cut_border_percent=cut_border_percent)
-    lc_even_local = apply_wavelet(lc_even_local, wavelet_family, levels, cut_border_percent=cut_border_percent)
-    lc_odd_local = apply_wavelet(lc_odd_local, wavelet_family, levels, cut_border_percent=cut_border_percent)
+    # lc_even_global = apply_wavelet(lc_even_global, wavelet_family, levels, cut_border_percent=cut_border_percent)
+    # lc_odd_global = apply_wavelet(lc_odd_global, wavelet_family, levels, cut_border_percent=cut_border_percent)
+    # lc_even_local = apply_wavelet(lc_even_local, wavelet_family, levels, cut_border_percent=cut_border_percent)
+    # lc_odd_local = apply_wavelet(lc_odd_local, wavelet_family, levels, cut_border_percent=cut_border_percent)
+    lc_even_global = apply_starlet(lc_even_global, wavelet_family, levels)
+    lc_odd_global = apply_starlet(lc_odd_global, wavelet_family, levels)
+    lc_even_local = apply_starlet(lc_even_local, wavelet_family, levels)
+    lc_odd_local = apply_starlet(lc_odd_local, wavelet_family, levels)
 
     headers = {
         "period": row.koi_period,
@@ -223,8 +227,8 @@ def process_func_continue(row):
 if __name__ == "__main__":
     
     # df_path = 'csv/cumulative_2022.09.30_09.06.43.csv'
-    df_path = 'csv/cumulative_2025.04.04_07.26.51.csv'
-    df = pd.read_csv(df_path ,skiprows=53)
+    df_path = r'csv/cumulative_2025.11.25_08.30.17.csv'
+    df = pd.read_csv(df_path ,skiprows=144)
     
     # results = []
     # for _, row in tqdm(df.iterrows(), total=len(df)): # iterative downloading
@@ -233,9 +237,9 @@ if __name__ == "__main__":
     #     break
     
     # concurrent downloading
-    wavelet_family = "db5"
+    wavelet_family = "B3"
     path = f"all_data_2025_{wavelet_family}/"
-    download_dir="data_2025/"
+    download_dir="data3/"
     process_func =  partial(process_light_curve, levels=[1, 2, 3, 4], wavelet_family=wavelet_family, plot=False, plot_comparative=False,
                             save=True, path=path, download_dir=download_dir, plot_folder=path)
     # results = progress_map(process_func, [row for _, row in df.iterrows()], n_cpu=8, total=len(df), error_behavior='coerce')
