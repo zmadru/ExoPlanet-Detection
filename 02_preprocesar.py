@@ -240,7 +240,7 @@ if __name__ == "__main__":
     wavelet_family = "B3"
     path = f"all_data_2025_{wavelet_family}/"
     download_dir="data3/"
-    process_func =  partial(process_light_curve, levels=[1, 2, 3, 4], wavelet_family=wavelet_family, plot=False, plot_comparative=False,
+    process_func =  partial(process_light_curve, levels=[1, 2, 3, 4, 5, 6, 7, 8], wavelet_family=wavelet_family, plot=False, plot_comparative=False,
                             save=True, path=path, download_dir=download_dir, plot_folder=path)
     # results = progress_map(process_func, [row for _, row in df.iterrows()], n_cpu=8, total=len(df), error_behavior='coerce')
     # lanzar el proceso en paralelo con 12 CPUs, pero fraccionando el ds cada 500 elementos

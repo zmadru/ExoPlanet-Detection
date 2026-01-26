@@ -1,3 +1,13 @@
-Algoritmo de entrenamiento de validación cruzada
-Descargar nuevos datos actualizados
-Probar nuevas wavelets de Roberto
+Algoritmo de entrenamiento de validación cruzada - Hecho
+Descargar nuevos datos actualizados - Hecho
+Probar nuevas wavelets de Roberto - Hecho
+
+Seleccionar varias curvas y ver la descomposicion wavelet hasta nivel 8 - Hecho
+
+Probar con distintos kernels en las convoluciones
+Probar nuevos hiperparámetros
+
+-------------------------------------------------------------
+dividir en dos canales o cabezas conv las series par e impar
+mascara de recorte centrada en el transito 
+analizar csv del 2022 y verificar prediccion de candidatos con el csv del 2025

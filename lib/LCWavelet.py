@@ -40,11 +40,11 @@ class LightCurveWaveletFoldCollection():
             axarr[i, 0].plot(data, 'r')
             axarr[i, 1].plot(coeff_d, 'g')
             axarr[i, 0].set_ylabel("Level {}".format(i + 1), fontsize=14, rotation=90)
-            axarr[i, 0].set_yticklabels([])
+            # axarr[i, 0].set_yticklabels([])
             if i == 0:
                 axarr[i, 0].set_title("Approximation coefficients", fontsize=14)
                 axarr[i, 1].set_title("Detail coefficients", fontsize=14)
-            axarr[i, 1].set_yticklabels([])
+            # axarr[i, 1].set_yticklabels([])
         # plt.show()
 
 class LightCurveWaveletCollection():
@@ -84,11 +84,11 @@ class LightCurveWaveletCollection():
             axarr[i, 1].plot(coeff_p, c='blue',label='par')
             axarr[i, 1].plot(coeff_i, c='red',label='inpar')
             axarr[i, 0].set_ylabel("Level {}".format(i + 1), fontsize=14, rotation=90)
-            axarr[i, 0].set_yticklabels([])
+            # axarr[i, 0].set_yticklabels([])
             if i == 0:
                 axarr[i, 0].set_title("Approximation coefficients", fontsize=14)
                 axarr[i, 1].set_title("Detail coefficients", fontsize=14)
-            axarr[i, 1].set_yticklabels([])
+            # axarr[i, 1].set_yticklabels([])
         plt.show()
 
 
